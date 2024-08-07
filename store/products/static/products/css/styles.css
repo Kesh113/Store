@@ -1,15 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+
 html {
     height: 100%;
 }
 
 body {
+    margin: 0;
+    padding-top: 100px;
     height: 100%;
     font-family: 'Nunito', sans-serif;
-    display: flex;
-    flex-direction: column;
 }
 
-/* Навигационная панель */
+.container {
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; /* Минимальная высота контейнера равна высоте экрана */
+}
+
+/* Хэдэр */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
 nav {
     display: flex;
@@ -20,8 +38,24 @@ nav {
     margin-left: 500px;
     margin-right: 500px;
     font-size: 25px;
-    padding: 0;
+    padding: 0; 
+}
 
+/* Мэйн */
+
+main {
+    flex: 1; /* Основной контент займет все доступное пространство */
+    padding: 20px;
+}
+
+/* Футэр */
+
+footer {
+    color: white;
+    text-align: center;
+    background-color: rgb(138, 137, 143); 
+    padding: 10px;
+    width: 100%;
 }
 
 /* Кнопка каталога */
