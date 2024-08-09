@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.urls import reverse
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -8,7 +9,7 @@ class PublishedManager(models.Manager):
 class Products(models.Model):
     
     class Status(models.IntegerChoices):
-        DRAFT = 0, 'Скрыто'
+        HIDDEN = 0, 'Скрыто'
         PUBLISHED = 1, 'Опубликовано'
         
     product_name = models.CharField(max_length=255, verbose_name='Название товара')
@@ -18,7 +19,7 @@ class Products(models.Model):
     characters = models.TextField(default=None, blank=True, null=True, verbose_name='Характеристики')
     price = models.PositiveIntegerField(validators=[MinValueValidator(1)], verbose_name='Цена')
     count = models.PositiveIntegerField(verbose_name='Количество')
-    is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)), default=Status.DRAFT, verbose_name='Статус')
+    is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)), default=Status.HIDDEN, verbose_name='Статус')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категория')
     
     objects = models.Manager()

@@ -2,15 +2,11 @@
 
 {% block content %}
 <main>
-    <p>
-        {{ title }}
-    </p>
-    <!--
-    {% for category in categories %}
-    <span> > {{ category }}</span> 
-    {% endfor %} 
-    -->
+    
+    <span> > {{ title }}</span> 
+    
     <h1>Каталог товаров</h1>
+    {% for product in products %}
     <div>
         <button>
             <svg width="24" height="24" fill="none">
@@ -34,15 +30,16 @@
                 <div>
                     <div style="padding-bottom: 4px;">
                         <div>
-                            <span>3166 ₽</span>
+                            <span>{{ product.price }} ₽</span>
                             <span style="margin-left: 4px; margin-right: 4px;"><s>8100 ₽</s></span>
-                            <span>−61%</span>
+                            <span>−1%</span>
                         </div>
                     </div>
-                    <span>Рашгард Спортивный спорт</span>
+                    <span>{{ product.product_name }}</span>
                 </div>
             </a></div>
     </div>
+    {% endfor %} 
 
 </main>
 {% endblock %}

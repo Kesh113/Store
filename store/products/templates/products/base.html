@@ -7,7 +7,10 @@
     <title>{{ title }}</title>
     <meta charset="utf-8">
     <meta name="description" content="Большой ассортимент товаров!">
+    <meta name="keywords" content="товар1,товар2,...">
+    <meta name="author" content="Kesh">
     <link type="text/css" href="{% static 'products/css/styles.css' %}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -15,14 +18,27 @@
         <header>
             <nav>
                 <h3>лого магазина</h3>
-                <button class="button">
-                    <svg viewBox="0 0 24 24" width="30" height="30">
-                        <path d="M3 6h18v2H3z"></path>
-                        <path d="M3 11h18v2H3z"></path>
-                        <path d="M3 16h18v2H3z"></path>
-                    </svg>
-                    <span class="">Каталог</span>
-                </button>
+                <nav class="navbar">
+                    <div class="menu">
+                        <button class="button">
+                            <svg viewBox="0 0 24 24" width="30" height="30">
+                                <path d="M3 6h18v2H3z"></path>
+                                <path d="M3 11h18v2H3z"></path>
+                                <path d="M3 16h18v2H3z"></path>
+                            </svg>
+                            <span class="">Каталог</span>
+                        </button>
+                        <div id="categoryMenu" class="dropdown hidden">
+                            <ul>
+                                <li><a href="#category1">Категория 1</a></li>
+                                <li><a href="#category2">Категория 2</a></li>
+                                <li><a href="#category3">Категория 3</a></li>
+                                <li><a href="#category4">Категория 4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <script src="script.js"></script>
                 <input class="search" name="q" type="search" enterkeyhint="search" placeholder="Поиск по сайту"
                     autocomplete="off" style="width: 600px;">
                 <a href="{% url 'cart' %}">

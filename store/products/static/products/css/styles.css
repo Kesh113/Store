@@ -117,3 +117,47 @@ footer {
 .button:focus::before {
     opacity: 1;
 }
+
+.navbar {
+    position: relative;
+}
+
+.menu {
+    display: inline-block;
+    position: relative;
+}
+
+
+#categoryMenu {
+    position: absolute;
+    background-color: white; /* Белый фон для меню */
+    border: 1px solid #ccc; /* Серый бордер */
+    border-radius: 5px;
+    z-index: 1;
+    display: none; /* Скрыто по умолчанию */
+    margin-top: 5px; /* Отступ снизу от кнопки */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+.dropdown ul {
+    list-style-type: none; /* Убираем маркеры */
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown ul li {
+    padding: 10px; /* Отступы для каждого пункта */
+}
+
+.dropdown ul li a {
+    text-decoration: none; /* Убираем подчёркивание */
+    color: black; /* Чёрный текст */
+}
+
+.dropdown ul li:hover {
+    background-color: #f1f1f1; /* Изменяем фон на серый при наведении */
+}
+
+.hidden {
+    display: none; /* Класс для скрытия меню */
+}
