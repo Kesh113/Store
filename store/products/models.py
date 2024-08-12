@@ -13,7 +13,7 @@ class Products(models.Model):
         PUBLISHED = 1, 'Опубликовано'
         
     product_name = models.CharField(max_length=255, verbose_name='Название товара')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Слаг')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, help_text='Слаг - это часть URL-адреса ресурса', verbose_name='Слаг')
     photo = models.ImageField(upload_to='photos/%d.%m.%Y', default=None, blank=True, null=True, verbose_name='Фото')
     description = models.TextField(default=None, blank=True, null=True, verbose_name='Описание')
     characters = models.TextField(default=None, blank=True, null=True, verbose_name='Характеристики')
@@ -31,12 +31,22 @@ class Products(models.Model):
     def get_absolute_url(self):
         return reverse('product', kwargs={'product_slug': self.slug})
     
+    class Meta:
+        verbose_name = "Товар"
+        verbose_name_plural = "Товары"
+        ordering = ['product_name']
+    
 class Category(models.Model):
     cat_name = models.CharField(max_length=255, verbose_name='Категория')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Слаг категории')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, help_text='Слаг - это часть URL-адреса ресурса', verbose_name='Слаг категории')
     
     def __str__(self):
         return self.cat_name
     
     def get_absolute_url(self):
         return reverse('category', kwargs={'cat_slug': self.slug})
+    
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
+        ordering = ['id']
