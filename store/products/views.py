@@ -7,7 +7,6 @@ from products.utils import DataMixin
 
 
 class ProductsHome(DataMixin, ListView):
-
     context_object_name = 'products'
     template_name = 'products/index.html'
     title_page = 'Магазин товаров'
